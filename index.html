@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Sonia Riesco Granja</title>
+  <meta name="description" content="Sonia Riesco Granja · Especialista en Innovación e Inteligencia Estratégica. Ayudo a organizaciones a anticipar el cambio y detectar nuevas oportunidades de innovación." />
+  <meta name="theme-color" content="#f6f3ee" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#14171c" media="(prefers-color-scheme: dark)" />
+
+  <!-- Vista previa al compartir el enlace (WhatsApp, LinkedIn…) -->
+  <meta property="og:type" content="profile" />
+  <meta property="og:title" content="Sonia Riesco Granja" />
+  <meta property="og:description" content="Especialista en Innovación e Inteligencia Estratégica" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #f6f3ee;
+      --card: #ffffff;
+      --ink: #1c1f24;
+      --muted: #6b6f76;
+      --line: #e8e3da;
+      --accent: #a8834a;       /* dorado suave */
+      --accent-ink: #ffffff;
+      --btn: #f3efe8;
+      --btn-hover: #ebe5da;
+      --shadow: 0 20px 50px -20px rgba(40, 32, 20, .25);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #14171c;
+        --card: #1c2027;
+        --ink: #f1ede6;
+        --muted: #a0a4ab;
+        --line: #2b3039;
+        --accent: #c9a56b;
+        --accent-ink: #1a1a1a;
+        --btn: #252a33;
+        --btn-hover: #2e343e;
+        --shadow: 0 20px 50px -20px rgba(0, 0, 0, .6);
+      }
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body { height: 100%; }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100svh;
+      padding: max(20px, env(safe-area-inset-top)) 16px max(20px, env(safe-area-inset-bottom));
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 400px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      padding: 40px 24px 28px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      animation: rise .6s cubic-bezier(.2, .8, .2, 1) both;
+    }
+    /* Franja decorativa superior */
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 96px;
+      background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 22%, transparent), transparent 70%);
+      pointer-events: none;
+    }
+
+    /* ---------- Foto / iniciales ---------- */
+    .avatar {
+      position: relative;
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 22px;
+      border-radius: 50%;
+      padding: 4px;
+      background: linear-gradient(140deg, var(--accent), color-mix(in srgb, var(--accent) 35%, var(--card)));
+    }
+    .avatar > * {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      border: 3px solid var(--card);
+      background: var(--btn);
+      display: grid;
+      place-items: center;
+      object-fit: cover;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 44px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      color: var(--accent);
+    }
+
+    /* ---------- Texto ---------- */
+    h1 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-weight: 600;
+      font-size: 34px;
+      line-height: 1.1;
+      letter-spacing: .2px;
+    }
+    .role {
+      margin-top: 10px;
+      font-size: 12.5px;
+      font-weight: 600;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .divider {
+      width: 40px;
+      height: 1px;
+      background: var(--line);
+      margin: 20px auto;
+    }
+    .tagline {
+      font-size: 15px;
+      line-height: 1.55;
+      color: var(--muted);
+      max-width: 300px;
+      margin: 0 auto;
+    }
+
+    /* ---------- Botones de contacto ---------- */
+    .actions {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-top: 28px;
+    }
+    .action {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 4px 12px;
+      border-radius: 18px;
+      background: var(--btn);
+      color: var(--ink);
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 500;
+      transition: background .2s, transform .15s;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .action:hover { background: var(--btn-hover); }
+    .action:active { transform: scale(.96); }
+    .action svg {
+      width: 26px;
+      height: 26px;
+      color: var(--accent);
+    }
+
+    /* ---------- Botón principal ---------- */
+    .save {
+      margin-top: 16px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 17px 20px;
+      border: 0;
+      border-radius: 18px;
+      background: var(--accent);
+      color: var(--accent-ink);
+      font: inherit;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: filter .2s, transform .15s;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .save:hover { filter: brightness(1.06); }
+    .save:active { transform: scale(.98); }
+    .save svg { width: 20px; height: 20px; }
+
+    .share {
+      margin-top: 14px;
+      background: none;
+      border: 0;
+      color: var(--muted);
+      font: inherit;
+      font-size: 14px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px;
+    }
+    .share:hover { color: var(--ink); }
+    .share svg { width: 16px; height: 16px; }
+
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: max(24px, env(safe-area-inset-bottom));
+      transform: translate(-50%, 20px);
+      background: var(--ink);
+      color: var(--bg);
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-size: 14px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .25s, transform .25s;
+    }
+    .toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .card { animation: none; }
+    }
+    @media (max-width: 340px) {
+      .actions { grid-template-columns: repeat(2, 1fr); }
+      h1 { font-size: 30px; }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="card">
+    <!-- FOTO: para usar tu foto, sustituye el <div> de abajo por:
+         <img src="foto.jpg" alt="Sonia Riesco Granja" />            -->
+    <div class="avatar">
+      <div aria-label="Sonia Riesco Granja">SR</div>
+    </div>
+
+    <h1>Sonia Riesco Granja</h1>
+    <p class="role">Especialista en Innovación<br />e Inteligencia Estratégica</p>
+
+    <div class="divider"></div>
+
+    <p class="tagline">Ayudo a organizaciones a anticipar el cambio y detectar nuevas oportunidades de innovación.</p>
+
+    <nav class="actions" aria-label="Contacto">
+      <a class="action" href="https://wa.me/34679916567" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.87 9.87 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91A9.85 9.85 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23a8.2 8.2 0 0 1 8.23 8.24c0 4.54-3.7 8.23-8.23 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06a6.73 6.73 0 0 1-3.36-2.94c-.25-.44.25-.41.72-1.36.08-.17.04-.31-.02-.43-.06-.13-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.42h-.48a.92.92 0 0 0-.66.31c-.23.25-.87.85-.87 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.24 3.74 1.58.68 2.19.74 2.98.62.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
+        WhatsApp
+      </a>
+      <a class="action" href="tel:+34679916567">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+        Llamar
+      </a>
+      <a class="action" href="mailto:soniariesco@gmail.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+        Email
+      </a>
+      <a class="action" href="https://www.linkedin.com/in/soniariesco/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>
+        LinkedIn
+      </a>
+    </nav>
+
+    <button class="save" id="saveContact" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg>
+      Guardar contacto
+    </button>
+
+    <button class="share" id="shareCard" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.59 13.51 6.83 3.98M15.41 6.51l-6.82 3.98"/></svg>
+      Compartir tarjeta
+    </button>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    // ===== Datos del contacto (edita aquí si algo cambia) =====
+    const contact = {
+      firstName: "Sonia",
+      lastName: "Riesco Granja",
+      title: "Especialista en Innovación e Inteligencia Estratégica",
+      phone: "+34679916567",
+      email: "soniariesco@gmail.com",
+      linkedin: "https://www.linkedin.com/in/soniariesco/",
+      note: "Ayudo a organizaciones a anticipar el cambio y detectar nuevas oportunidades de innovación."
+    };
+
+    const toast = (msg) => {
+      const t = document.getElementById("toast");
+      t.textContent = msg;
+      t.classList.add("show");
+      clearTimeout(t._timer);
+      t._timer = setTimeout(() => t.classList.remove("show"), 2200);
+    };
+
+    // Escapa caracteres especiales según el estándar vCard
+    const esc = (s) => s.replace(/\\/g, "\\\\").replace(/,/g, "\\,").replace(/;/g, "\\;").replace(/\n/g, "\\n");
+
+    function buildVCard(c) {
+      return [
+        "BEGIN:VCARD",
+        "VERSION:3.0",
+        `N;CHARSET=UTF-8:${esc(c.lastName)};${esc(c.firstName)};;;`,
+        `FN;CHARSET=UTF-8:${esc(c.firstName + " " + c.lastName)}`,
+        `TITLE;CHARSET=UTF-8:${esc(c.title)}`,
+        `TEL;TYPE=CELL,VOICE:${c.phone}`,
+        `EMAIL;TYPE=INTERNET:${c.email}`,
+        `URL;TYPE=LinkedIn:${c.linkedin}`,
+        `NOTE;CHARSET=UTF-8:${esc(c.note)}`,
+        "END:VCARD"
+      ].join("\r\n");
+    }
+
+    document.getElementById("saveContact").addEventListener("click", () => {
+      const blob = new Blob([buildVCard(contact)], { type: "text/vcard;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "Sonia-Riesco-Granja.vcf";
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+      toast("Contacto descargado");
+    });
+
+    document.getElementById("shareCard").addEventListener("click", async () => {
+      const data = {
+        title: "Sonia Riesco Granja",
+        text: "Tarjeta de contacto de Sonia Riesco Granja",
+        url: location.href
+      };
+      try {
+        if (navigator.share) {
+          await navigator.share(data);
+        } else {
+          await navigator.clipboard.writeText(location.href);
+          toast("Enlace copiado");
+        }
+      } catch (e) {
+        /* el usuario canceló */
+      }
+    });
+  </script>
+</body>
+</html>

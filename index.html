@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Sonia Riesco Granja</title>
   <meta name="description" content="Sonia Riesco Granja · Especialista en Innovación e Inteligencia Estratégica. Ayudo a organizaciones a anticipar el cambio y detectar nuevas oportunidades de innovación." />
-  <meta name="theme-color" content="#555B6E" />
+  <meta name="theme-color" content="#E7D4BA" />
 
   <!-- Vista previa al compartir el enlace (WhatsApp, LinkedIn…) -->
   <meta property="og:type" content="profile" />
@@ -19,17 +19,17 @@
 
   <style>
     :root {
-      --page: #e4e0dd;          /* fondo gris cálido fuera de la tarjeta */
-      --card: #555B6E;          /* gris azulado */
-      --white: #f5f3f0;
-      --muted: rgba(245, 243, 240, .46);
-      --faint: rgba(245, 243, 240, .62);
-      --orange: #ff7a2f;
-      --amber: #ffb259;
-      --ember: #d9531e;
-      --glass: rgba(255, 255, 255, .07);
-      --glass-strong: rgba(255, 255, 255, .11);
-      --glass-line: rgba(255, 255, 255, .10);
+      --page: #555B6E;          /* fondo fuera de la tarjeta (ordenador) */
+      --card: #E7D4BA;          /* beige */
+      --ink: #555B6E;           /* acento: textos e iconos */
+      --muted: rgba(85, 91, 110, .62);
+      --faint: rgba(85, 91, 110, .8);
+      --orange: #FC8C47;
+      --amber: #FDB07F;
+      --ember: #EF7630;
+      --glass: rgba(255, 255, 255, .32);
+      --glass-strong: rgba(255, 255, 255, .48);
+      --glass-line: rgba(85, 91, 110, .14);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -38,7 +38,7 @@
     body {
       font-family: "Inter Tight", "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
       background: var(--page);
-      color: var(--white);
+      color: var(--ink);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -60,7 +60,7 @@
       border-radius: 28px;
       padding: 22px 22px 24px;
       overflow: hidden;
-      box-shadow: 0 30px 60px -25px rgba(0, 0, 0, .45);
+      box-shadow: 0 30px 60px -25px rgba(30, 33, 44, .55);
       animation: rise .7s cubic-bezier(.2, .8, .2, 1) both;
     }
 
@@ -96,7 +96,7 @@
     .glow .g3 {
       width: 300px; height: 200px;
       bottom: -80px; left: -60px;
-      background: radial-gradient(circle, rgba(217, 83, 30, .55) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(252, 140, 71, .5) 0%, transparent 70%);
       opacity: .4;
     }
     /* Grano sutil para dar textura */
@@ -117,8 +117,8 @@
       margin: 26px auto 0;
       border-radius: 50%;
       padding: 3px;
-      background: conic-gradient(from 200deg, var(--amber), var(--orange), rgba(255,255,255,.15), var(--amber));
-      box-shadow: 0 0 60px -10px rgba(255, 122, 47, .6);
+      background: conic-gradient(from 200deg, var(--amber), var(--orange), rgba(255,255,255,.6), var(--amber));
+      box-shadow: 0 0 60px -10px rgba(252, 140, 71, .6);
     }
     .avatar img {
       display: block;
@@ -170,7 +170,7 @@
       line-height: 1.32;
       letter-spacing: -.2px;
       font-weight: 500;
-      color: var(--white);
+      color: var(--ink);
       text-align: center;
       max-width: 320px;
       margin-left: auto;
@@ -195,16 +195,16 @@
       border-radius: 22px;
       background: var(--glass);
       border: 1px solid var(--glass-line);
-      color: var(--white);
+      color: var(--ink);
       text-decoration: none;
       font-size: 11.5px;
       color: var(--faint);
       transition: background .2s, transform .15s, color .2s;
       -webkit-tap-highlight-color: transparent;
     }
-    .action:hover { background: var(--glass-strong); color: var(--white); }
+    .action:hover { background: var(--glass-strong); color: var(--ink); }
     .action:active { transform: scale(.95); }
-    .action svg { width: 22px; height: 22px; color: var(--white); }
+    .action svg { width: 22px; height: 22px; color: var(--ink); }
 
     /* ================= Guardar contacto ================= */
     .save {
@@ -219,7 +219,7 @@
       background: var(--glass-strong);
       -webkit-backdrop-filter: blur(22px);
       backdrop-filter: blur(22px);
-      color: var(--white);
+      color: var(--ink);
       font: inherit;
       font-size: 15px;
       font-weight: 500;
@@ -228,7 +228,7 @@
       transition: background .2s, transform .15s;
       -webkit-tap-highlight-color: transparent;
     }
-    .save:hover { background: rgba(255, 255, 255, .15); }
+    .save:hover { background: rgba(255, 255, 255, .62); }
     .save:active { transform: scale(.98); }
     .save small { display: block; font-size: 11px; font-weight: 400; color: var(--muted); }
     .save .plus {
@@ -237,7 +237,7 @@
       display: grid;
       place-items: center;
       background: radial-gradient(circle at 30% 25%, var(--amber), var(--orange) 50%, var(--ember));
-      box-shadow: 0 0 22px rgba(255, 122, 47, .5);
+      box-shadow: 0 0 22px rgba(252, 140, 71, .5);
     }
     .save .plus svg { width: 18px; height: 18px; stroke: #fff; }
 
@@ -259,12 +259,12 @@
       background: var(--glass-strong);
       -webkit-backdrop-filter: blur(22px);
       backdrop-filter: blur(22px);
-      color: var(--white);
+      color: var(--ink);
       cursor: pointer;
       transition: background .2s, transform .15s;
       -webkit-tap-highlight-color: transparent;
     }
-    .qr-btn:hover { background: rgba(255, 255, 255, .15); }
+    .qr-btn:hover { background: rgba(255, 255, 255, .62); }
     .qr-btn:active { transform: scale(.95); }
     .qr-btn svg { width: 24px; height: 24px; }
 
@@ -277,8 +277,8 @@
       line-height: .92;
       letter-spacing: -.045em;
     }
-    .name span { display: block; color: var(--white); }
-    .name span:first-child { color: #c9c5c0; } /* gris claro */
+    .name span { display: block; color: var(--ink); }
+    .name span:first-child { color: rgba(85, 91, 110, .55); } /* Sonia en tono suave */
 
     /* ================= Ventana del QR ================= */
     .qr-modal {
@@ -288,7 +288,7 @@
       display: grid;
       place-items: center;
       padding: 20px;
-      background: rgba(0, 0, 0, .55);
+      background: rgba(85, 91, 110, .45);
       -webkit-backdrop-filter: blur(10px);
       backdrop-filter: blur(10px);
       opacity: 0;
@@ -304,8 +304,8 @@
       border-radius: 28px;
       text-align: center;
       background:
-        radial-gradient(circle at 50% 0%, rgba(255, 122, 47, .35), transparent 60%),
-        #4a4f60;
+        radial-gradient(circle at 50% 0%, rgba(252, 140, 71, .35), transparent 60%),
+        #F1E3D0;
       border: 1px solid var(--glass-line);
       transform: translateY(14px) scale(.98);
       transition: transform .3s cubic-bezier(.2, .8, .2, 1);
@@ -320,7 +320,7 @@
       padding: 14px;
       border-radius: 22px;
       background: #fff;
-      box-shadow: 0 0 40px -8px rgba(255, 122, 47, .55);
+      box-shadow: 0 0 40px -8px rgba(252, 140, 71, .55);
     }
     .qr-box svg { display: block; width: 100%; height: 100%; }
     .qr-actions {
@@ -334,7 +334,7 @@
       border-radius: 999px;
       border: 1px solid var(--glass-line);
       background: var(--glass);
-      color: var(--white);
+      color: var(--ink);
       font: inherit;
       font-size: 14px;
       font-weight: 500;
@@ -342,7 +342,8 @@
     }
     .qr-actions button.primary {
       border: 0;
-      background: linear-gradient(135deg, var(--amber), var(--orange) 55%, var(--ember));
+      background: var(--ink);
+      color: #fff;
     }
     .qr-close {
       position: absolute;
@@ -380,7 +381,7 @@
       gap: 6px;
       padding: 6px 0;
     }
-    .share:hover { color: var(--white); }
+    .share:hover { color: var(--ink); }
     .share svg { width: 14px; height: 14px; }
 
     .toast {
@@ -388,7 +389,7 @@
       left: 50%;
       bottom: max(24px, env(safe-area-inset-bottom));
       transform: translate(-50%, 20px);
-      background: var(--white);
+      background: var(--ink);
       color: var(--card);
       padding: 10px 18px;
       border-radius: 999px;

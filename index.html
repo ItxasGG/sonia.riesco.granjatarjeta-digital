@@ -24,8 +24,9 @@
       --ink: #1c1f24;
       --muted: #6b6f76;
       --line: #e8e3da;
-      --accent: #a8834a;       /* dorado suave */
-      --accent-ink: #ffffff;
+      --accent: #f7bd70;       /* naranja */
+      --accent-ink: #1c1f24;   /* texto sobre el naranja */
+      --accent-text: #A8621A; /* naranja oscuro para textos e iconos sobre blanco */
       --btn: #f3efe8;
       --btn-hover: #ebe5da;
       --shadow: 0 20px 50px -20px rgba(40, 32, 20, .25);
@@ -37,8 +38,9 @@
         --ink: #f1ede6;
         --muted: #a0a4ab;
         --line: #2b3039;
-        --accent: #c9a56b;
+        --accent: #f7bd70;
         --accent-ink: #1a1a1a;
+        --accent-text: #f7bd70;
         --btn: #252a33;
         --btn-hover: #2e343e;
         --shadow: 0 20px 50px -20px rgba(0, 0, 0, .6);
@@ -107,7 +109,7 @@
       font-size: 44px;
       font-weight: 600;
       letter-spacing: 1px;
-      color: var(--accent);
+      color: var(--accent-text);
     }
 
     /* ---------- Texto ---------- */
@@ -124,7 +126,7 @@
       font-weight: 600;
       letter-spacing: 1.6px;
       text-transform: uppercase;
-      color: var(--accent);
+      color: var(--accent-text);
     }
     .divider {
       width: 40px;
@@ -167,7 +169,7 @@
     .action svg {
       width: 26px;
       height: 26px;
-      color: var(--accent);
+      color: var(--accent-text);
     }
 
     /* ---------- Botón principal ---------- */
@@ -204,10 +206,10 @@
     .save-row .save { margin-top: 0; }
     .qr-btn {
       width: 58px;
-      border: 1.5px solid var(--accent);
+      border: 1.5px solid var(--accent-text);
       border-radius: 18px;
       background: transparent;
-      color: var(--accent);
+      color: var(--accent-text);
       display: grid;
       place-items: center;
       cursor: pointer;

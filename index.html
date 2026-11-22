@@ -20,13 +20,13 @@
   <style>
     /* Estilo cartel editorial retro: naranja + crema, tipografía condensada gigante */
     :root {
-      --page: #E4E1DC;          /* fondo gris claro fuera de la tarjeta (ordenador) */
+      --page: #3B2E4D;          /* fondo fuera de la tarjeta (ordenador): ciruela */
       --orange: #FC8C47;        /* naranja principal */
-      --cream: #E7D4BA;         /* crema / papel */
-      --paper: #F1E6D4;         /* crema más claro */
-      --ink: #555B6E;           /* acento: textos e iconos */
-      --ink-soft: rgba(85, 91, 110, .7);
-      --line: rgba(85, 91, 110, .28);
+      --cream: #DAD8D5;         /* gris claro (parte de abajo) */
+      --paper: #F4F2EF;         /* gris casi blanco */
+      --ink: #3B2E4D;           /* ciruela (entre azul oscuro y ciruela): textos e iconos */
+      --ink-soft: rgba(59, 46, 77, .7);
+      --line: rgba(59, 46, 77, .28);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -55,7 +55,7 @@
       flex-direction: column;
       background: var(--cream);
       overflow: hidden;
-      box-shadow: 0 24px 50px -24px rgba(40, 30, 20, .45);
+      box-shadow: 0 24px 50px -24px rgba(20, 12, 30, .5);
       animation: rise .6s cubic-bezier(.2, .8, .2, 1) both;
     }
     /* Grano de papel impreso */
@@ -95,7 +95,7 @@
       gap: 10px;
       color: var(--ink);
       padding-bottom: 10px;
-      border-bottom: 1px solid rgba(85, 91, 110, .35);
+      border-bottom: 1px solid rgba(59, 46, 77, .35);
     }
     .giant {
       font-family: "Anton", "Impact", sans-serif;
@@ -269,7 +269,7 @@
       display: grid;
       place-items: center;
       padding: 20px;
-      background: rgba(85, 91, 110, .5);
+      background: rgba(59, 46, 77, .5);
       -webkit-backdrop-filter: blur(8px);
       backdrop-filter: blur(8px);
       opacity: 0;

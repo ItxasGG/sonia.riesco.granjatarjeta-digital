@@ -194,6 +194,110 @@
     .save:active { transform: scale(.98); }
     .save svg { width: 20px; height: 20px; }
 
+    /* ---------- Fila Guardar + QR ---------- */
+    .save-row {
+      margin-top: 16px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+    }
+    .save-row .save { margin-top: 0; }
+    .qr-btn {
+      width: 58px;
+      border: 1.5px solid var(--accent);
+      border-radius: 18px;
+      background: transparent;
+      color: var(--accent);
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      transition: background .2s, transform .15s;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .qr-btn:hover { background: var(--btn); }
+    .qr-btn:active { transform: scale(.96); }
+    .qr-btn svg { width: 24px; height: 24px; }
+
+    /* ---------- Ventana del QR ---------- */
+    .qr-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 10;
+      display: grid;
+      place-items: center;
+      padding: 20px;
+      background: rgba(20, 18, 15, .45);
+      -webkit-backdrop-filter: blur(6px);
+      backdrop-filter: blur(6px);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity .25s, visibility .25s;
+    }
+    .qr-modal.open { opacity: 1; visibility: visible; }
+    .qr-sheet {
+      position: relative;
+      width: 100%;
+      max-width: 340px;
+      padding: 30px 24px 24px;
+      border-radius: 28px;
+      text-align: center;
+      background: var(--card);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      transform: translateY(14px) scale(.98);
+      transition: transform .3s cubic-bezier(.2, .8, .2, 1);
+    }
+    .qr-modal.open .qr-sheet { transform: none; }
+    .qr-sheet h2 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 28px;
+      font-weight: 600;
+    }
+    .qr-sheet p { margin-top: 4px; font-size: 14px; color: var(--muted); }
+    .qr-box {
+      margin: 20px auto 0;
+      width: 230px;
+      height: 230px;
+      padding: 14px;
+      border-radius: 20px;
+      background: #fff;
+      border: 1.5px solid var(--accent);
+    }
+    .qr-box svg { display: block; width: 100%; height: 100%; }
+    .qr-actions {
+      margin-top: 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .qr-actions button {
+      padding: 14px 10px;
+      border-radius: 16px;
+      border: 0;
+      background: var(--btn);
+      color: var(--ink);
+      font: inherit;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .qr-actions button:hover { background: var(--btn-hover); }
+    .qr-actions button.primary { background: var(--accent); color: var(--accent-ink); }
+    .qr-close {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: 0;
+      background: var(--btn);
+      color: var(--muted);
+      font-size: 20px;
+      line-height: 1;
+      cursor: pointer;
+    }
+
     .share {
       margin-top: 14px;
       background: none;
@@ -273,10 +377,15 @@
       </a>
     </nav>
 
-    <button class="save" id="saveContact" type="button">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg>
-      Guardar contacto
-    </button>
+    <div class="save-row">
+      <button class="save" id="saveContact" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg>
+        Guardar contacto
+      </button>
+      <button class="qr-btn" id="openQr" type="button" aria-label="Mostrar código QR">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><path d="M14 14h3v3h-3zM20 14v.01M14 20h.01M17 20h4v-3"/></svg>
+      </button>
+    </div>
 
     <button class="share" id="shareCard" type="button">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.59 13.51 6.83 3.98M15.41 6.51l-6.82 3.98"/></svg>
@@ -284,9 +393,81 @@
     </button>
   </main>
 
+  <!-- Ventana con el código QR -->
+  <div class="qr-modal" id="qrModal" role="dialog" aria-modal="true" aria-labelledby="qrTitle">
+    <div class="qr-sheet">
+      <button class="qr-close" id="closeQr" type="button" aria-label="Cerrar">×</button>
+      <h2 id="qrTitle">Escanea mi tarjeta</h2>
+      <p>Apunta con la cámara del móvil</p>
+      <div class="qr-box" id="qrBox"></div>
+      <div class="qr-actions">
+        <button type="button" id="downloadQr">Descargar QR</button>
+        <button type="button" class="primary" id="closeQr2">Listo</button>
+      </div>
+    </div>
+  </div>
+
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
   <script>
+    // Dirección pública de la tarjeta (la que contiene el QR)
+    const CARD_URL = "https://itxasgg.github.io/sonia.riesco.granjatarjeta-digital/";
+    const pageUrl = () => location.protocol.startsWith("http") ? location.href.split("#")[0] : CARD_URL;
+
+    // ===== Código QR =====
+    let qrModules = null;
+
+    function buildQr() {
+      if (qrModules || typeof qrcode === "undefined") return qrModules;
+      const qr = qrcode(0, "M");
+      qr.addData(pageUrl());
+      qr.make();
+      const n = qr.getModuleCount();
+      qrModules = { n, dark: (r, c) => qr.isDark(r, c) };
+      let d = "";
+      for (let r = 0; r < n; r++)
+        for (let c = 0; c < n; c++)
+          if (qr.isDark(r, c)) d += `M${c} ${r}h1v1h-1z`;
+      document.getElementById("qrBox").innerHTML =
+        `<svg viewBox="0 0 ${n} ${n}" shape-rendering="crispEdges" role="img" aria-label="Código QR de la tarjeta"><path d="${d}" fill="#1c1f24"/></svg>`;
+      return qrModules;
+    }
+
+    const qrModal = document.getElementById("qrModal");
+    const openQr = () => {
+      if (!buildQr()) { toast("No se pudo generar el QR"); return; }
+      qrModal.classList.add("open");
+    };
+    const closeQr = () => qrModal.classList.remove("open");
+
+    document.getElementById("openQr").addEventListener("click", openQr);
+    document.getElementById("closeQr").addEventListener("click", closeQr);
+    document.getElementById("closeQr2").addEventListener("click", closeQr);
+    qrModal.addEventListener("click", (e) => { if (e.target === qrModal) closeQr(); });
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeQr(); });
+
+    // Descarga el QR como imagen PNG en alta resolución (para imprimir)
+    document.getElementById("downloadQr").addEventListener("click", () => {
+      const m = buildQr();
+      if (!m) return;
+      const scale = 24, margin = 4, size = (m.n + margin * 2) * scale;
+      const canvas = document.createElement("canvas");
+      canvas.width = canvas.height = size;
+      const ctx = canvas.getContext("2d");
+      ctx.fillStyle = "#fff";
+      ctx.fillRect(0, 0, size, size);
+      ctx.fillStyle = "#1c1f24";
+      for (let r = 0; r < m.n; r++)
+        for (let c = 0; c < m.n; c++)
+          if (m.dark(r, c)) ctx.fillRect((c + margin) * scale, (r + margin) * scale, scale, scale);
+      const a = document.createElement("a");
+      a.href = canvas.toDataURL("image/png");
+      a.download = "QR-Sonia-Riesco-Granja.png";
+      a.click();
+      toast("QR descargado");
+    });
+
     // ===== Datos del contacto (edita aquí si algo cambia) =====
     const contact = {
       firstName: "Sonia",
